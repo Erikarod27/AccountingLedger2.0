@@ -1,14 +1,20 @@
 Project Description: 
 
+-The Accounting Ledger CLI Application is a Java-based tool for tracking financial transactions.
+-It provides a command-line interface (CLI) for users to manage deposits, payments, and view transaction history.
+-Users can add deposits and record payments, specifying details such as date, time, description, vendor, and amount.
+-The application offers a ledger feature to display transaction history, with options to view all entries, deposits, or payments.
+-Additionally, users can generate predefined reports for month-to-date, previous month, year-to-date, and previous year financial analysis.
+
 Interesting Code:
 
-The "implements" keyword in Java lets you access an interface like Comparable.
-The Comparable interface is similar to a class but has empty methods that can be defined with @Override.
-The compareTo method that belongs to the Comparable interface allows you to compare objects. 
-My compareTo uses a different compareTo method that belongs to LocalDate inside of it.
-The current object's date is compared to the next object's date, if the date is before the current object's date it returns -1.
-If the current object's date is equal to the next object's date it returns 0 and if it's after it returns 1.
-compareTo sorts each Transactions objects until they're in order.
+-The "implements" keyword in Java lets you access an interface like Comparable.
+-The Comparable interface is similar to a class but has empty methods that can be defined with @Override.
+-The compareTo method that belongs to the Comparable interface allows you to compare objects. 
+-My compareTo uses a different compareTo method that belongs to LocalDate inside of it.
+-The current object's date is compared to the next object's date, if the date is before the current object's date it returns -1.
+-If the current object's date is equal to the next object's date it returns 0 and if it's after it returns 1.
+-compareTo sorts each Transactions objects until they're in order.
 
 <img width="503" alt="9" src="https://github.com/Erikarod27/AccountingLedger/assets/113813867/ebda585d-73cd-4c74-8f25-2cc78251b905">
 <img width="512" alt="10" src="https://github.com/Erikarod27/AccountingLedger/assets/113813867/a2620d3e-d600-4fc7-ae46-02f7daa26345">
