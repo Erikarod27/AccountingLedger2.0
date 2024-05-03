@@ -5,7 +5,7 @@ import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 
 public class Transactions implements Comparable<Transactions> {
-
+    //Instance variables
     LocalDate date;
     LocalTime time;
     String description;
@@ -13,68 +13,53 @@ public class Transactions implements Comparable<Transactions> {
     double amount;
     boolean isDeposit;
 
+    //Getters and setters for instance variables
     public LocalDate getDate() {
         return date;
     }
-
     public void setDate(LocalDate date) {
         this.date = date;
     }
-
     public LocalTime getTime() {
         return time;
     }
-
     public void setTime(LocalTime time) {
         this.time = time;
     }
-
     public String getDescription() {
         return description;
     }
-
     public void setDescription(String description) {
         this.description = description;
     }
-
     public String getVendor() {
         return vendor;
     }
-
     public void setVendor(String vendor) {
         this.vendor = vendor;
     }
-
     public double getAmount() {
         return amount;
     }
-
     public void setAmount(double amount) {
         this.amount = amount;
     }
 
-    //Transactions constructor
-    public Transactions(String stringDate, String stringTime, String description, String vendor, double amount, boolean isDeposit) {
-        this.date = convertDate(stringDate);
-        this.time = convertTime(stringTime);
+    //Transactions constructor with 4 string, 1 double, and 1 boolean parameters
+    public Transactions(LocalDate date, LocalTime time, String description, String vendor, double amount, boolean isDeposit) {
+        this.date = convertDate(String.valueOf(date));
+        this.time = convertTime(String.valueOf(time));
         this.description = description;
         this.vendor = vendor;
         this.amount = amount;
         this.isDeposit = isDeposit;
   }
 
-    //Overloading Transactions constructor
-    public Transactions(String stringDate, String stringTime, String description, String vendor, double amount) {
-        this.date = convertDate(stringDate);
-        this.time = convertTime(stringTime);
-        this.description = description;
-        this.vendor = vendor;
-        this.amount = amount;
-        this.isDeposit = false;
-    }
-
-    //Convert date method
-    private LocalDate convertDate(String stringDate) {
+    /**
+     * convertDate method has string parameter and returns LocalDate
+     * DateTimeFormatter formats stringDate to LocalDate then returns it
+     */
+    public static LocalDate convertDate(String stringDate) {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         try {
             LocalDate convertedDate = LocalDate.parse(stringDate, formatter);
@@ -85,8 +70,11 @@ public class Transactions implements Comparable<Transactions> {
         return null;
     }
 
-    //Convert time method
-    private LocalTime convertTime(String stringTime) {
+    /**
+     * convertTime method has string parameter and returns LocalTime
+     * DateTimeFormatter formats stringTime to LocalTime then returns it
+     */
+    public static LocalTime convertTime(String stringTime) {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm:ss");
         try {
             LocalTime convertedTime = LocalTime.parse(stringTime, formatter);
@@ -97,7 +85,7 @@ public class Transactions implements Comparable<Transactions> {
         return null;
     }
 
-    //Overrides compare method to sort arrayList of Transactions
+    //Overrides compareTo method to sort arrayList of Transactions
     @Override
     public int compareTo(Transactions o) {
         return getDate().compareTo(o.getDate());
