@@ -45,7 +45,7 @@ public class Transactions implements Comparable<Transactions> {
         this.amount = amount;
     }
 
-    //Transactions constructor with 4 string, 1 double, and 1 boolean parameters
+    //Transactions constructor with 1 LocalDate, 1 LocalTime, 2 String, 1 double, and 1 boolean parameter
     public Transactions(LocalDate date, LocalTime time, String description, String vendor, double amount, boolean isDeposit) {
         this.date = convertDate(String.valueOf(date));
         this.time = convertTime(String.valueOf(time));

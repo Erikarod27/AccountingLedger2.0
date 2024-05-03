@@ -3,7 +3,6 @@ package com.pluralsight;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;
-import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.Scanner;
 import java.util.ArrayList;
@@ -17,7 +16,8 @@ public class TransactionsUtil {
      static ArrayList<Transactions> list = new ArrayList<>();
 
     /**
-     * deposits method prints prompt and assigns input to variables, parsing amount to double
+     * deposits method prints prompt and assigns input to variables, stringDate and stringTime
+     * get converted to LocalDate and LocalTime, amount is parsed to double
      * Transactions object is created using variables as parameters and isDeposit set to true
      */
     public void deposits() {
@@ -40,7 +40,8 @@ public class TransactionsUtil {
     }
 
     /**
-     * payments method prints prompt and assigns input to variables, parsing amount to double
+     * payments method prints prompt and assigns input to variables, stringDate and stringTime
+     * are converted to LocalDate and LocalTime, amount is parsed to double
      * amount is multiplied by -1 to turn to a negative transaction
      * Transactions object is created using variables as parameters and isDeposit set to false
      */
@@ -67,14 +68,15 @@ public class TransactionsUtil {
     /**
      * monthToDate method uses LocalDate class to get current date
      * Collections class sorts list in reverse order then iterates objects in list
-     * If object month matches currentDate month object is printed
+     * If object month and year matches currentDate object is printed
      */
     public void monthToDate() {
         System.out.println("Month To Date");
         LocalDate currentDate = LocalDate.now();
         Collections.sort(list, Collections.reverseOrder());
         for (Transactions t : list) {
-            if (t.getDate().getMonthValue() == currentDate.getMonthValue()) {
+            if ((t.getDate().getMonthValue() == currentDate.getMonthValue())
+            && (t.getDate().getYear() == currentDate.getYear())) {
                 System.out.println(t);
             }
         }
@@ -83,7 +85,7 @@ public class TransactionsUtil {
     /**
      * previousMonth method uses LocalDate class to get current date and subtract month
      * Collections class sorts list in reverse order then iterates objects in list
-     * If object month matches currentDateMinusMonth object is printed
+     * If object month and year matches currentDateMinusMonth object is printed
      */
     public void previousMonth() {
         System.out.println("Previous Month");
