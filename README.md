@@ -1,3 +1,6 @@
+Project Description: 
+Interesting Code:
+Images of Application Screens:
 <img width="292" alt="1" src="https://github.com/Erikarod27/AccountingLedger/assets/113813867/64329b2d-3878-41be-bb4e-f1e19689b119">
 <img width="427" alt="2" src="https://github.com/Erikarod27/AccountingLedger/assets/113813867/de0e5453-5872-4181-a330-2685c7ce4912">
 <img width="512" alt="3" src="https://github.com/Erikarod27/AccountingLedger/assets/113813867/7b8f2dc8-aeeb-4287-bfc0-35f2905303f7">
