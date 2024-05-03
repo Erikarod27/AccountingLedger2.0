@@ -2,8 +2,8 @@ Project Description:
 
 Interesting Code:
 
-<img width="512" alt="10" src="https://github.com/Erikarod27/AccountingLedger/assets/113813867/a2620d3e-d600-4fc7-ae46-02f7daa26345">
 <img width="503" alt="9" src="https://github.com/Erikarod27/AccountingLedger/assets/113813867/ebda585d-73cd-4c74-8f25-2cc78251b905">
+<img width="512" alt="10" src="https://github.com/Erikarod27/AccountingLedger/assets/113813867/a2620d3e-d600-4fc7-ae46-02f7daa26345">
 
 Images of Application Screens:
 
