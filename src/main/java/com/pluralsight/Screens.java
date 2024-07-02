@@ -29,7 +29,6 @@ public class Screens {
                     "(P) Payment\n" +
                     "(L) Ledger\n" +
                     "(X) Exit\n");
-
             System.out.print("------------------------------------\n");
             System.out.print("Enter Choice: ");
             char choice = Character.toUpperCase(scanner.nextLine().charAt(0));
@@ -62,15 +61,15 @@ public class Screens {
         Scanner scanner = new Scanner(System.in);
         boolean running = true;
         while (running) {
-            System.out.print(BRIGHT_WHITE + "----------------------------\n");
+            System.out.print(BRIGHT_WHITE + "------------------------------------\n");
             System.out.print("Ledger\n" +
                     "(A) All\n" +
                     "(D) Deposits \n" +
                     "(P) Payments\n" +
                     "(R) Reports\n" +
-                    "(S) Custom Search\n" +
                     "(H) Home\n");
-            System.out.print("-------------------------------\n");
+            System.out.print("------------------------------------\n");
+            System.out.print("Enter Choice: ");
             char choice = Character.toUpperCase(scanner.nextLine().charAt(0));
             switch (choice) {
                 case 'A':
@@ -106,7 +105,7 @@ public class Screens {
         Scanner scanner = new Scanner(System.in);
         boolean running = true;
         while (running) {
-            System.out.print("-----------------------------------------\n");
+            System.out.print("------------------------------------\n");
             System.out.print("Reports\n" +
                     "(1) Month To Date\n" +
                     "(2) Previous Month\n" +
@@ -115,7 +114,8 @@ public class Screens {
                     "(5) Search By Vendor\n" +
                     "(6) Custom Search\n" +
                     "(0) Back\n");
-            System.out.print("--------------------------------------------\n");
+            System.out.print("------------------------------------\n");
+            System.out.print("Enter Choice: ");
             int choice = scanner.nextInt();
             switch (choice) {
                 case 1:
@@ -134,7 +134,6 @@ public class Screens {
                     t.searchByVendor();
                     break;
                 case 6:
-                    //create customSearch method
                     t.customSearch();
                     break;
                 case 0:

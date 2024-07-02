@@ -155,7 +155,63 @@ public class TransactionsUtil {
     }
 
     //Implement code for customSearch method
-    private void customSearch(){}
+    //User should be able to search by start date, end date,
+    //description, vendor, and amount
+    public void customSearch(){
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Start Date (yyyy-mm-dd): ");
+        String startDateInput = scanner.nextLine();
+        LocalDate startDate = startDateInput.isEmpty() ? null : Transactions.convertDate(startDateInput);
+
+        System.out.print("End Date (yyyy-mm-dd): ");
+        String endDateInput = scanner.nextLine();
+        LocalDate endDate = endDateInput.isEmpty() ? null : Transactions.convertDate(endDateInput);
+
+        System.out.print("Description");
+        String description = scanner.nextLine();
+        description = description.isEmpty() ? null : description;
+
+        System.out.print("Vendor: ");
+        String vendor = scanner.nextLine();
+        vendor = vendor.isEmpty() ? null : vendor;
+
+        System.out.print("Amount: $");
+        String amountInput = scanner.nextLine();
+        Double amount = amountInput.isEmpty() ? null : Double.parseDouble(amountInput);
+
+        // Filter transactions based on input
+        ArrayList<Transactions> filteredTransactions = new ArrayList<>();
+        for (Transactions transaction : list) {
+            boolean matches = true;
+
+            if (startDate != null && transaction.getDate().isBefore(startDate)) {
+                matches = false;
+            }
+            if (endDate != null && transaction.getDate().isAfter(endDate)) {
+                matches = false;
+            }
+            if (description != null && !transaction.getDescription().equalsIgnoreCase(description)) {
+                matches = false;
+            }
+            if (vendor != null && !transaction.getVendor().equalsIgnoreCase(vendor)) {
+                matches = false;
+            }
+            if (amount != null && transaction.getAmount() != amount) {
+                matches = false;
+            }
+
+            if (matches) {
+                filteredTransactions.add(transaction);
+            }
+        }
+
+        // Sort and print the filtered transactions
+        Collections.sort(filteredTransactions, Collections.reverseOrder());
+        for (Transactions transaction : filteredTransactions) {
+            System.out.println(transaction);
+        }
+
+    }
 
     /**
      * saveTransaction method has Transaction object parameter
