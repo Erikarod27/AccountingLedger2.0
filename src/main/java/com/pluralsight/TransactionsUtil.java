@@ -47,9 +47,11 @@ public class TransactionsUtil {
      */
     public void payments() {
         Scanner scanner = new Scanner(System.in);
+        System.out.print("-------------------------------------------");
         System.out.print("Date (yyyy-mm-dd): ");
         String stringDate = scanner.nextLine();
         LocalDate date = Transactions.convertDate(stringDate);
+        System.out.print("-------------------------------------------");
         System.out.print("Time (hh:mm:ss): ");
         String stringTime = scanner.nextLine();
         LocalTime time = Transactions.convertTime(stringTime);
@@ -152,6 +154,9 @@ public class TransactionsUtil {
         }
     }
 
+    //Implement code for customSearch method
+    private void customSearch(){}
+
     /**
      * saveTransaction method has Transaction object parameter
      * FileWriter appends object parameters to transactions.csv file
@@ -228,5 +233,9 @@ public class TransactionsUtil {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public void searchByStartDate() {
+        
     }
 }
