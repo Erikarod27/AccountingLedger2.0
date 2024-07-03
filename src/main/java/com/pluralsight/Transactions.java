@@ -1,8 +1,14 @@
 package com.pluralsight;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.Collections;
+
+import static java.util.Locale.filter;
 
 public class Transactions implements Comparable<Transactions> {
     //Instance variables
@@ -13,10 +19,14 @@ public class Transactions implements Comparable<Transactions> {
     double amount;
     boolean isDeposit;
 
+    //ArrayList object with Transactions objects as elements in list
+    static ArrayList<Transactions> list = new ArrayList<>();
+
     //Getters and setters for instance variables
     public LocalDate getDate() {
         return date;
     }
+
     public void setDate(LocalDate date) {
         this.date = date;
     }
@@ -26,21 +36,25 @@ public class Transactions implements Comparable<Transactions> {
     public void setTime(LocalTime time) {
         this.time = time;
     }
+
     public String getDescription() {
         return description;
     }
     public void setDescription(String description) {
         this.description = description;
     }
+
     public String getVendor() {
         return vendor;
     }
     public void setVendor(String vendor) {
         this.vendor = vendor;
     }
+
     public double getAmount() {
         return amount;
     }
+
     public void setAmount(double amount) {
         this.amount = amount;
     }

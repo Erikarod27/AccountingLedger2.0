@@ -24,11 +24,11 @@ public class Screens {
         boolean running = true;
         while (running) {
             System.out.print(BRIGHT_WHITE + "------------------------------------\n");
-            System.out.print("Welcome to Accounting Ledger\n" +
-                    "(D) Deposit\n" +
-                    "(P) Payment\n" +
-                    "(L) Ledger\n" +
-                    "(X) Exit\n");
+            System.out.print(BOLD + "Welcome to Accounting Ledger\n" + ANSI_RESET + BRIGHT_WHITE +
+                    "-- (D) Deposit\n" +
+                    "-- (P) Payment\n" +
+                    "-- (L) Ledger\n" +
+                    "-- (X) Exit\n");
             System.out.print("------------------------------------\n");
             System.out.print("Enter Choice: ");
             char choice = Character.toUpperCase(scanner.nextLine().charAt(0));
@@ -62,12 +62,12 @@ public class Screens {
         boolean running = true;
         while (running) {
             System.out.print(BRIGHT_WHITE + "------------------------------------\n");
-            System.out.print("Ledger\n" +
-                    "(A) All\n" +
-                    "(D) Deposits \n" +
-                    "(P) Payments\n" +
-                    "(R) Reports\n" +
-                    "(H) Home\n");
+            System.out.print(BOLD + "Ledger\n" + ANSI_RESET + BRIGHT_WHITE +
+                    "-- (A) All\n" +
+                    "-- (D) Deposits \n" +
+                    "-- (P) Payments\n" +
+                    "-- (R) Reports\n" +
+                    "-- (H) Home\n");
             System.out.print("------------------------------------\n");
             System.out.print("Enter Choice: ");
             char choice = Character.toUpperCase(scanner.nextLine().charAt(0));
@@ -105,15 +105,15 @@ public class Screens {
         Scanner scanner = new Scanner(System.in);
         boolean running = true;
         while (running) {
-            System.out.print("------------------------------------\n");
+            System.out.print(BRIGHT_WHITE + "------------------------------------\n");
             System.out.print("Reports\n" +
-                    "(1) Month To Date\n" +
-                    "(2) Previous Month\n" +
-                    "(3) Year To Date\n" +
-                    "(4) Previous Year\n" +
-                    "(5) Search By Vendor\n" +
-                    "(6) Custom Search\n" +
-                    "(0) Back\n");
+                    "-- (1) Month To Date\n" +
+                    "-- (2) Previous Month\n" +
+                    "-- (3) Year To Date\n" +
+                    "-- (4) Previous Year\n" +
+                    "-- (5) Search By Vendor\n" +
+                    "-- (6) Custom Search\n" +
+                    "-- (0) Back\n");
             System.out.print("------------------------------------\n");
             System.out.print("Enter Choice: ");
             int choice = scanner.nextInt();
@@ -139,9 +139,31 @@ public class Screens {
                 case 0:
                     return;
                 default:
-                    System.out.println("Invalid choice");
+                    System.out.println(RED + "Invalid choice");
             }
         }
         scanner.close();
     }
-}
+    // Method to handle custom search inputs
+    public void customSearch() {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter start date (yyyy-mm-dd) or leave blank: ");
+        String startDate = scanner.nextLine().trim();
+
+        System.out.print("Enter end date (yyyy-mm-dd) or leave blank: ");
+        String endDate = scanner.nextLine().trim();
+
+        System.out.print("Enter description or leave blank: ");
+        String description = scanner.nextLine().trim();
+
+        System.out.print("Enter vendor or leave blank: ");
+        String vendor = scanner.nextLine().trim();
+
+        System.out.print("Enter amount or leave blank: ");
+        String amount = scanner.nextLine().trim();
+
+        t.customSearch();
+
+
+}}

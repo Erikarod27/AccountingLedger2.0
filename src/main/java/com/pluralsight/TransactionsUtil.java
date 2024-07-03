@@ -14,6 +14,9 @@ public class TransactionsUtil {
 
      //ArrayList object with Transactions objects as elements in list
      static ArrayList<Transactions> list = new ArrayList<>();
+    public static final String RED = "\u001B[31m";
+    public static final String BRIGHT_WHITE = "\u001B[97m";
+    public static final String BRIGHT_GREEN = "\u001B[92m";
 
     /**
      * deposits method prints prompt and assigns input to variables, stringDate and stringTime
@@ -22,7 +25,7 @@ public class TransactionsUtil {
      */
     public void deposits() {
         Scanner scanner = new Scanner(System.in);
-        System.out.print("Date (yyyy-mm-dd): ");
+        System.out.print(BRIGHT_WHITE + "Date (yyyy-mm-dd): ");
         String stringDate = scanner.nextLine();
         LocalDate date = Transactions.convertDate(stringDate);
         System.out.print("Time (hh:mm:ss): ");
@@ -37,6 +40,7 @@ public class TransactionsUtil {
         Transactions transaction = new Transactions(date, time, description, vendor, amount, true);
         list.add(transaction);
         saveTransaction(transaction);
+        System.out.println(BRIGHT_GREEN + "Deposit Added Successfully!");
     }
 
     /**
@@ -48,7 +52,7 @@ public class TransactionsUtil {
     public void payments() {
         Scanner scanner = new Scanner(System.in);
         System.out.print("-------------------------------------------");
-        System.out.print("Date (yyyy-mm-dd): ");
+        System.out.print(BRIGHT_WHITE + "Date (yyyy-mm-dd): ");
         String stringDate = scanner.nextLine();
         LocalDate date = Transactions.convertDate(stringDate);
         System.out.print("-------------------------------------------");
@@ -65,6 +69,7 @@ public class TransactionsUtil {
         Transactions transaction = new Transactions(date, time, description, vendor, amount, false);
         list.add(transaction);
         saveTransaction(transaction);
+        System.out.println(RED + "Payment Completed!");
     }
 
     /**
@@ -158,7 +163,11 @@ public class TransactionsUtil {
     //User should be able to search by start date, end date,
     //description, vendor, and amount
     public void customSearch(){
+        // Ensure the transactions list is loaded from the CSV file
+        readFile();
+
         Scanner scanner = new Scanner(System.in);
+
         System.out.print("Start Date (yyyy-mm-dd): ");
         String startDateInput = scanner.nextLine();
         LocalDate startDate = startDateInput.isEmpty() ? null : Transactions.convertDate(startDateInput);
@@ -167,7 +176,7 @@ public class TransactionsUtil {
         String endDateInput = scanner.nextLine();
         LocalDate endDate = endDateInput.isEmpty() ? null : Transactions.convertDate(endDateInput);
 
-        System.out.print("Description");
+        System.out.print("Description: ");
         String description = scanner.nextLine();
         description = description.isEmpty() ? null : description;
 
@@ -210,7 +219,6 @@ public class TransactionsUtil {
         for (Transactions transaction : filteredTransactions) {
             System.out.println(transaction);
         }
-
     }
 
     /**
@@ -264,6 +272,7 @@ public class TransactionsUtil {
      * Collections class sorts list in reverse order then iterates through objects in list while printing
      */
     public static void readFile() {
+        list.clear();  // Clear the list to avoid duplicates if this method is called multiple times
         try {
             BufferedReader br = new BufferedReader(new FileReader("src/main/resources/transactions.csv"));
             String line;
@@ -282,16 +291,9 @@ public class TransactionsUtil {
                     list.add(transaction);
                 }
             }
-            Collections.sort(list, Collections.reverseOrder());
-            for (Transactions t : list) {
-                System.out.println(t);
-            }
+            br.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }
-
-    public void searchByStartDate() {
-        
     }
 }
