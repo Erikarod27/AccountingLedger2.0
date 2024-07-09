@@ -9,8 +9,11 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.io.IOException;
 import java.time.LocalDate;
+import java.time.format.DateTimeParseException;
 
 public class TransactionsUtil {
+
+    public static Scanner scanner = new Scanner(System.in);
 
      //ArrayList object with Transactions objects as elements in list
      static ArrayList<Transactions> list = new ArrayList<>();
@@ -23,25 +26,69 @@ public class TransactionsUtil {
      * get converted to LocalDate and LocalTime, amount is parsed to double
      * Transactions object is created using variables as parameters and isDeposit set to true
      */
+
     public void deposits() {
-        Scanner scanner = new Scanner(System.in);
-        System.out.print(BRIGHT_WHITE + "Date (yyyy-mm-dd): ");
-        String stringDate = scanner.nextLine();
-        LocalDate date = Transactions.convertDate(stringDate);
-        System.out.print("Time (hh:mm:ss): ");
-        String stringTime = scanner.nextLine();
-        LocalTime time = Transactions.convertTime(stringTime);
-        System.out.print("Description: ");
-        String description = scanner.nextLine();
-        System.out.print("Vendor: ");
-        String vendor = scanner.nextLine();
-        System.out.print("Amount: $");
-        double amount = scanner.nextDouble();
-        Transactions transaction = new Transactions(date, time, description, vendor, amount, true);
-        list.add(transaction);
-        saveTransaction(transaction);
-        System.out.println(BRIGHT_GREEN + "Deposit Added Successfully!");
+
+        boolean depositScreen = true;
+        while (depositScreen) {
+            Scanner scanner = new Scanner(System.in);
+            LocalDate date = null;
+            LocalTime time = null;
+            double amount = 0;
+            boolean dateScreen = true;
+            while (dateScreen) {
+
+                System.out.print(BRIGHT_WHITE + "Date (yyyy-mm-dd): ");
+                String stringDate = scanner.nextLine();
+                date = Transactions.convertDate(stringDate);
+                if (Transactions.convertDate(stringDate) == null) {
+                    System.out.println(RED + "Try Again");
+
+                    depositScreen = true;
+                } else {
+                   dateScreen = false;
+                }
+            }
+            boolean timeScreen = true;
+            while (timeScreen) {
+                    System.out.print(BRIGHT_WHITE + "Time (hh:mm:ss): ");
+                    String stringTime = scanner.nextLine();
+                    time = Transactions.convertTime(stringTime);
+                if (Transactions.convertTime(stringTime) == null) {
+                    System.out.println(RED + "Try Again");
+
+                    timeScreen = true;
+                } else {
+                    timeScreen = false;
+                }
+
+            }
+
+            System.out.print(BRIGHT_WHITE + "Description: ");
+            String description = scanner.nextLine();
+
+            System.out.print("Vendor: ");
+            String vendor = scanner.nextLine();
+
+            boolean validAmount = false;
+            while (!validAmount) {
+                try {
+                    System.out.print(BRIGHT_WHITE + "Amount: $");
+                    amount = Double.parseDouble(scanner.nextLine());
+                    validAmount = true;
+                } catch (NumberFormatException e) {
+                    System.out.println(RED + "Invalid amount. Please enter a valid number.");
+                }
+            }
+
+            Transactions transaction = new Transactions(date, time, description, vendor, amount, true);
+            list.add(transaction);
+            saveTransaction(transaction);
+            System.out.println(BRIGHT_GREEN + "Deposit Added Successfully!");
+            depositScreen = false;
+        }
     }
+
 
     /**
      * payments method prints prompt and assigns input to variables, stringDate and stringTime
@@ -49,28 +96,69 @@ public class TransactionsUtil {
      * amount is multiplied by -1 to turn to a negative transaction
      * Transactions object is created using variables as parameters and isDeposit set to false
      */
+
     public void payments() {
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("-------------------------------------------");
-        System.out.print(BRIGHT_WHITE + "Date (yyyy-mm-dd): ");
-        String stringDate = scanner.nextLine();
-        LocalDate date = Transactions.convertDate(stringDate);
-        System.out.print("-------------------------------------------");
-        System.out.print("Time (hh:mm:ss): ");
-        String stringTime = scanner.nextLine();
-        LocalTime time = Transactions.convertTime(stringTime);
-        System.out.print("Description: ");
-        String description = scanner.nextLine();
-        System.out.print("Vendor: ");
-        String vendor = scanner.nextLine();
-        System.out.print("Amount: $");
-        double amount = scanner.nextDouble();
-        amount *=-1;
-        Transactions transaction = new Transactions(date, time, description, vendor, amount, false);
-        list.add(transaction);
-        saveTransaction(transaction);
-        System.out.println(RED + "Payment Completed!");
+
+        boolean paymentScreen = true;
+        while (paymentScreen) {
+            Scanner scanner = new Scanner(System.in);
+            LocalDate date = null;
+            LocalTime time = null;
+            double amount = 0;
+            boolean dateScreen = true;
+            while (dateScreen) {
+
+                System.out.print(BRIGHT_WHITE + "Date (yyyy-mm-dd): ");
+                String stringDate = scanner.nextLine();
+                date = Transactions.convertDate(stringDate);
+                if (Transactions.convertDate(stringDate) == null) {
+                    System.out.println(RED + "Try Again");
+
+                    paymentScreen = true;
+                } else {
+                    dateScreen = false;
+                }
+            }
+            boolean timeScreen = true;
+            while (timeScreen) {
+                System.out.print(BRIGHT_WHITE + "Time (hh:mm:ss): ");
+                String stringTime = scanner.nextLine();
+                time = Transactions.convertTime(stringTime);
+                if (Transactions.convertTime(stringTime) == null) {
+                    System.out.println(RED + "Try Again");
+
+                    timeScreen = true;
+                } else {
+                    timeScreen = false;
+                }
+
+            }
+
+            System.out.print(BRIGHT_WHITE + "Description: ");
+            String description = scanner.nextLine();
+
+            System.out.print("Vendor: ");
+            String vendor = scanner.nextLine();
+
+            boolean validAmount = false;
+            while (!validAmount) {
+                try {
+                    System.out.print(BRIGHT_WHITE + "Amount: $");
+                    amount = Double.parseDouble(scanner.nextLine());
+                    validAmount = true;
+                } catch (NumberFormatException e) {
+                    System.out.println(RED + "Invalid amount. Please enter a valid number.");
+                }
+            }
+
+            Transactions transaction = new Transactions(date, time, description, vendor, amount, false);
+            list.add(transaction);
+            saveTransaction(transaction);
+            System.out.println(RED + "Payment Completed!");
+            paymentScreen = false;
+        }
     }
+
 
     /**
      * monthToDate method uses LocalDate class to get current date
@@ -166,27 +254,28 @@ public class TransactionsUtil {
         // Ensure the transactions list is loaded from the CSV file
         readFile();
 
-        Scanner scanner = new Scanner(System.in);
+            scanner = new Scanner(System.in);
 
-        System.out.print("Start Date (yyyy-mm-dd): ");
-        String startDateInput = scanner.nextLine();
-        LocalDate startDate = startDateInput.isEmpty() ? null : Transactions.convertDate(startDateInput);
+            System.out.print("Start Date (yyyy-mm-dd): ");
+            String startDateInput = scanner.nextLine();
+            LocalDate startDate = startDateInput.isEmpty() ? null : Transactions.convertDate(startDateInput);
 
-        System.out.print("End Date (yyyy-mm-dd): ");
-        String endDateInput = scanner.nextLine();
-        LocalDate endDate = endDateInput.isEmpty() ? null : Transactions.convertDate(endDateInput);
 
-        System.out.print("Description: ");
-        String description = scanner.nextLine();
-        description = description.isEmpty() ? null : description;
+            System.out.print("End Date (yyyy-mm-dd): ");
+            String endDateInput = scanner.nextLine();
+            LocalDate endDate = endDateInput.isEmpty() ? null : Transactions.convertDate(endDateInput);
 
-        System.out.print("Vendor: ");
-        String vendor = scanner.nextLine();
-        vendor = vendor.isEmpty() ? null : vendor;
+            System.out.print("Description: ");
+            String description = scanner.nextLine();
+            description = description.isEmpty() ? null : description;
 
-        System.out.print("Amount: $");
-        String amountInput = scanner.nextLine();
-        Double amount = amountInput.isEmpty() ? null : Double.parseDouble(amountInput);
+            System.out.print("Vendor: ");
+            String vendor = scanner.nextLine();
+            vendor = vendor.isEmpty() ? null : vendor;
+
+            System.out.print("Amount: $");
+            String amountInput = scanner.nextLine();
+            Double amount = amountInput.isEmpty() ? null : Double.parseDouble(amountInput);
 
         // Filter transactions based on input
         ArrayList<Transactions> filteredTransactions = new ArrayList<>();
