@@ -99,3 +99,15 @@ This project is licensed under the MIT License.
 <img width="235" alt="Goodbye" src="https://github.com/user-attachments/assets/e46d6cb4-7a56-4b2a-8eeb-87371c30b10c"><br>
 ### Error
 <img width="629" alt="AccountLedgerError" src="https://github.com/user-attachments/assets/88fee69f-0dea-4959-a32c-79640555d91d"><br>
+
+## Team members 
+### Courtezz Johnson
+- [Courtezz's GitHub](https://github.com/courtezz)
+### Erika Rodriguez 
+- [Erika's GitHub](https://github.com/Erikarod27)
+### Katherine Colon
+- [Katherine's GitHub](https://github.com/KatherineColon)
+### Kaila McAlpine
+- [Kaila's GitHub](https://github.com/KailaTheeNgineer)
+### Yordiana Rodriguez
+- [Yordiana's GitHub](https://github.com/Yordiana0912)
