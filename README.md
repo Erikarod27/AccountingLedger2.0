@@ -87,10 +87,15 @@ This method ensures that Transactions objects are sorted in chronological order.
 This project is licensed under the MIT License.  
 
 ## Images
-
+### Update
 <img width="234" alt="UpdatedLedgerDisplay" src="https://github.com/user-attachments/assets/1d5f968b-ccdb-4105-a7e0-09d97c5eee39"><br>
+### Reports
 <img width="369" alt="Reports" src="https://github.com/user-attachments/assets/40317be1-df56-4a52-8604-c086eafaebc8"><br>
+### Payment
 <img width="243" alt="Payment" src="https://github.com/user-attachments/assets/1c0ef06f-dda7-41a0-b482-bac9e2163661"><br>
+### Ledger
 <img width="345" alt="Ledger" src="https://github.com/user-attachments/assets/3e29506d-c616-4d87-b61a-634ebab03667"><br>
+### Exit
 <img width="235" alt="Goodbye" src="https://github.com/user-attachments/assets/e46d6cb4-7a56-4b2a-8eeb-87371c30b10c"><br>
+### Error
 <img width="629" alt="AccountLedgerError" src="https://github.com/user-attachments/assets/88fee69f-0dea-4959-a32c-79640555d91d"><br>
