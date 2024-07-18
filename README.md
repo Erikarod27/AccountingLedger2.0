@@ -1,10 +1,10 @@
 # Accounting Ledger CLI Application
 
-Overview
+## Overview
 
 The Accounting Ledger CLI Application is a Java-based tool designed for tracking financial transactions. It provides a command-line interface (CLI) for users to manage deposits, payments, and view transaction history efficiently.
 
-Features
+## Features
 
 Transaction Management:
 
@@ -38,7 +38,7 @@ Updated error catch mechanisms to ensure smooth and accurate transaction managem
 
 Clear error messages to guide users in correcting issues.
 
-Code Highlights
+## Code Highlights
 
 Comparable Interface
 
