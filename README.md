@@ -102,12 +102,12 @@ This project is licensed under the MIT License.
 
 ## Team members 
 ### Courtezz Johnson
-- [Courtezz's GitHub](https://github.com/courtezz)
+- [GitHub](https://github.com/courtezz)
 ### Erika Rodriguez 
-- [Erika's GitHub](https://github.com/Erikarod27)
+- [GitHub](https://github.com/Erikarod27)
 ### Katherine Colon
-- [Katherine's GitHub](https://github.com/KatherineColon)
+- [GitHub](https://github.com/KatherineColon)
 ### Kaila McAlpine
-- [Kaila's GitHub](https://github.com/KailaTheeNgineer)
+- [GitHub](https://github.com/KailaTheeNgineer)
 ### Yordiana Rodriguez
-- [Yordiana's GitHub](https://github.com/Yordiana0912)
+- [GitHub](https://github.com/Yordiana0912)
