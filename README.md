@@ -6,13 +6,13 @@ The Accounting Ledger CLI Application is a Java-based tool designed for tracking
 
 ## Features
 
-Transaction Management:  
+### Transaction Management:  
 
 Add deposits with details such as date, time, description, vendor, and amount.
 
 Record payments with similar detailed information.
 
-Ledger Display:
+### Ledger Display:
 
 View the entire transaction history.
 
@@ -20,7 +20,7 @@ Filter to view only deposits or payments.
 
 Improved display for a more user-friendly experience.
 
-Financial Reports:
+### Financial Reports:
 
 Generate predefined reports for:
 
@@ -32,7 +32,7 @@ Year-to-date
 
 Previous year
 
-Error Handling:
+### Error Handling:
 
 Updated error catch mechanisms to ensure smooth and accurate transaction management.
 
