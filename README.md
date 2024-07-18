@@ -87,7 +87,7 @@ This method ensures that Transactions objects are sorted in chronological order.
 This project is licensed under the MIT License.  
 
 ## Images
-### Update
+### Deposit
 <img width="234" alt="UpdatedLedgerDisplay" src="https://github.com/user-attachments/assets/1d5f968b-ccdb-4105-a7e0-09d97c5eee39"><br>
 ### Reports
 <img width="369" alt="Reports" src="https://github.com/user-attachments/assets/40317be1-df56-4a52-8604-c086eafaebc8"><br>
