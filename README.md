@@ -34,55 +34,55 @@ The Accounting Ledger CLI Application is a Java-based tool designed for tracking
 
 ### Error Handling:
 
-Updated error catch mechanisms to ensure smooth and accurate transaction management.
+- Updated error catch mechanisms to ensure smooth and accurate transaction management.
 
-Clear error messages to guide users in correcting issues.
+- Clear error messages to guide users in correcting issues.
 
 ## Code Highlights
 
-Comparable Interface
+### Comparable Interface
 
 The implements keyword in Java allows access to an interface, such as Comparable.
 
-Comparable Interface:
+- Comparable Interface:
 
-Similar to a class but contains empty methods to be defined with @Override.
+- Similar to a class but contains empty methods to be defined with @Override.
 
-The compareTo method, part of the Comparable interface, enables object comparison.
+- The compareTo method, part of the Comparable interface, enables object comparison.
 
-compareTo Method
+### compareTo Method
 
 The compareTo method is used for sorting Transactions objects by date.
 
-Utilizes the compareTo method from LocalDate for date comparison.
+- Utilizes the compareTo method from LocalDate for date comparison.
 
-Compares the current object's date with the next object's date:
+- Compares the current object's date with the next object's date:
 
-Returns -1 if the current object's date is before the next object's date.
+  - Returns -1 if the current object's date is before the next object's date.
 
-Returns 0 if the dates are equal.
+  - Returns 0 if the dates are equal.
 
-Returns 1 if the current object's date is after the next object's date.
+  - Returns 1 if the current object's date is after the next object's date.
 
 This method ensures that Transactions objects are sorted in chronological order.
 
-Getting Started
+## Getting Started
 
-Prerequisites
+### Prerequisites
 
-Java Development Kit (JDK) installed
+- Java Development Kit (JDK) installed
 
-Usage
+### Usage
 
-Clone the repository.
+1. Clone the repository.
 
-Navigate to the project directory.
+2. Navigate to the project directory.
 
-Compile and run the application.
+3. Compile and run the application.
 
-Use the CLI to add deposits, record payments, and view the ledger.
+4. Use the CLI to add deposits, record payments, and view the ledger.
 
-License
+### License
 
 This project is licensed under the MIT License.
 
