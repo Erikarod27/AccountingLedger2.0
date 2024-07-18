@@ -381,6 +381,10 @@ public class TransactionsUtil {
                 }
             }
             br.close();
+
+            for (Transactions transaction : list) {
+                System.out.println(transaction);
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }
