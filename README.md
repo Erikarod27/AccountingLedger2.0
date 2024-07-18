@@ -1,4 +1,4 @@
-#Accounting Ledger CLI Application
+# Accounting Ledger CLI Application
 
 Overview
 
