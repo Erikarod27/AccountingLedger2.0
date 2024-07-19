@@ -252,7 +252,7 @@ public class TransactionsUtil {
     //description, vendor, and amount
     public void customSearch(){
         // Ensure the transactions list is loaded from the CSV file
-        readFile();
+        readCustomFile();
 
             scanner = new Scanner(System.in);
 
@@ -385,6 +385,34 @@ public class TransactionsUtil {
             for (Transactions transaction : list) {
                 System.out.println(transaction);
             }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    public static void readCustomFile() {
+        list.clear();  // Clear the list to avoid duplicates if this method is called multiple times
+        try {
+            BufferedReader br = new BufferedReader(new FileReader("src/main/resources/transactions.csv"));
+            String line;
+            while ((line = br.readLine()) != null) {
+                String[] data = line.split("\\|");
+                LocalDate date = Transactions.convertDate(data[0]);
+                LocalTime time = Transactions.convertTime(data[1]);
+                String description = data[2];
+                String vendor = data[3];
+                double amount = Double.parseDouble(data[4]);
+                if (amount > 0) {
+                    Transactions transaction = new Transactions(date, time, description, vendor, amount, true);
+                    list.add(transaction);
+                } else {
+                    Transactions transaction = new Transactions(date, time, description, vendor, amount, false);
+                    list.add(transaction);
+                }
+            }
+            br.close();
+
         } catch (Exception e) {
             e.printStackTrace();
         }

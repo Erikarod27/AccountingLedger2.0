@@ -144,6 +144,7 @@ public class Screens {
         }
         scanner.close();
     }
+
     // Method to handle custom search inputs
     public void customSearch() {
         Scanner scanner = new Scanner(System.in);
